@@ -30,15 +30,37 @@ class Store:
 
 
 if __name__ == "__main__":
-    store = Store("Магазин", "ул. Долгая, 12")
-    store.add_item("яблоки", 0.5)
-    store.add_item("бананы", 0.75)
+    # Создание четырех магазинов
+    store1 = Store("Магазин 1", "ул. Долгая, 12")
+    store2 = Store("Магазин 2", "ул. Широкая, 34")
+    store3 = Store("Магазин 3", "ул. Тихая, 56")
+    store4 = Store("Магазин 4", "ул. Уголная, 78")
 
-    print(store.get_item_price("яблоки"))  # Вывод: 0.5
-    print(store.get_item_price("бананы"))  # Вывод: 0.75
+    # Добавление товаров в магазины
+    store1.add_item("яблоки", 0.5)
+    store1.add_item("бананы", 0.75)
+    store2.add_item("апельсины", 1.0)
+    store3.add_item("груши", 1.25)
+    store4.add_item("арбузы", 1.50)
 
-    store.update_item_price("яблоки", 1.0)
-    print(store.get_item_price("яблоки"))  # Вывод: 1.0
+    # Проверка цен товаров в магазинах
+    print(f"Цена яблоки в Магазине 1: {store1.get_item_price('яблоки')}")
+    print(f"Цена бананов в Магазине 2: {store2.get_item_price('бананы')}")
+    print(f"Цена груш в Магазине 3: {store3.get_item_price('груши')}")
+    print(f"Цена арбуза в Магазине 4: {store4.get_item_price('арбузы')}")
 
-    store.remove_item("бананы")
-    print(store.get_item_price("бананы"))  # Вывод: None
+    # Обновление цен товаров в магазинах
+    store1.update_item_price("яблоки", 0.75)
+    store2.update_item_price("апельсины", 1.25)
+
+    # Проверка обновленных цен в магазинах
+    print(f"Цена яблоки в Магазине 1 после обновления: {store1.get_item_price('яблоки')}")
+    print(f"Цена апельсинов в Магазине 2 после обновления: {store2.get_item_price('апельсины')}")
+
+    # Удаление товаров из магазинов
+    store3.remove_item("груши")
+    store4.remove_item("арбузы")
+
+    # Проверка удаленных товаров в магазинах
+    print(f"Цена груш в Магазине 3 после удаления: {store3.get_item_price('груши')}")
+    print(f"Цена арбуза в Магазине 4 после удаления: {store4.get_item_price('арбузы')}")
